@@ -1,0 +1,86 @@
+
+html {
+	color: #A9A8A8;
+	font-family: Courier;
+	font-size: 1.5em;
+	//border: 1px dotted black;
+}
+
+#logo{
+	width: 500px;
+	height: 100px;
+	color: #D5BE93;
+	padding-top: 30px;
+	text-align: center;
+	background-image: url("logo.gif");
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: auto;
+	margin-top: 50px;
+}
+
+#main {
+	position: relative;
+	top: 200px;
+	margin: auto;
+}
+
+.upper_left {
+	position: absolute;
+	top: 200px;
+	left: 0;
+	border-radius: 50%;
+	width: 250px;
+	height: 250px;
+	background: #9A84A7;
+}
+
+.upper_right {
+	position: absolute;
+	top: 200px;
+	left: 250px;
+	border-radius: 50%;
+	width: 250px;
+	height: 250px;
+	background: #57B4B4;
+	text-align: center;
+}
+
+.lower_left {
+	position: absolute;
+	top: 450px;
+	left: 0;
+	border-radius: 50%;
+	width: 250px;
+	height: 250px;
+	background: #FF7C7C;
+}
+
+.lower_right {
+	position: absolute;
+	top: 450px;
+	left: 250px;
+	border-radius: 50%;
+	width: 250px;
+	height: 250px;
+	background: #FFB77C;
+}
+
+#questionBox {
+	position: relative;
+	border: 3px dotted gray;
+	float: right;
+	padding: 10px;
+	display: none;
+}
+
+input[type=submit] {
+	padding:5x 15px;
+	background: #B2F0FF;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	font-size: .5em;
+	color: #A9A8A8;
+
+}
