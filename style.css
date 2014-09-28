@@ -2,11 +2,11 @@
 html {
 	color: #A9A8A8;
 	font-family: Courier;
-	font-size: 1.5em;
-	//border: 1px dotted black;
+	font-size: 1.25em;
 }
 
 #logo{
+	position: relative;
 	width: 500px;
 	height: 100px;
 	color: #D5BE93;
@@ -16,62 +16,80 @@ html {
 	background-repeat: no-repeat;
 	background-position: top center;
 	margin: auto;
-	margin-top: 50px;
 }
 
-#main {
-	position: relative;
-	top: 200px;
+.main {
+	position: absolute;
+	width: 600px;
+	height: 600px;
 	margin: auto;
+	top: 200px;
+	left: 300px;
 }
 
 .upper_left {
 	position: absolute;
-	top: 200px;
+	//top: 200px;
 	left: 0;
 	border-radius: 50%;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	background: #9A84A7;
+	text-align: center;
+	line-height: 265px;
+	vertical-align: middle;
 }
 
 .upper_right {
 	position: absolute;
-	top: 200px;
-	left: 250px;
+	//top: 200px;
+	left: 300px;
 	border-radius: 50%;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	background: #57B4B4;
 	text-align: center;
+	line-height: 265px;
+	vertical-align: middle;
 }
 
 .lower_left {
 	position: absolute;
-	top: 450px;
+	top: 300px;
 	left: 0;
 	border-radius: 50%;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	background: #FF7C7C;
+	text-align: center;
+	line-height: 265px;
+	vertical-align: middle;
 }
 
 .lower_right {
 	position: absolute;
-	top: 450px;
-	left: 250px;
+	top: 300px;
+	left: 300px;
 	border-radius: 50%;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	background: #FFB77C;
+	text-align: center;
+	line-height: 265px;
+	vertical-align: middle;
 }
 
 #questionBox {
-	position: relative;
+	position: absolute;
 	border: 3px dotted gray;
-	float: right;
+	height: 500px;
+	width: 400px;
+	//float: right;
 	padding: 10px;
 	display: none;
+	color: gray;
+	top: 225px;
+	right: 50px;
 }
 
 input[type=submit] {
@@ -83,4 +101,20 @@ input[type=submit] {
 	font-size: .5em;
 	color: #A9A8A8;
 
+}
+
+a {
+	text-decoration: none;
+	color: #E8E3E4;
+	vertical-align: middle;
+}
+
+#commentButtonText {
+	display: none;
+	color: #E8E3E4;
+	margin-top: 7px;
+}
+
+#endButton {
+	display: none;
 }

@@ -8,7 +8,6 @@
 		<meta charset="utf-8"/>
 		
 		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/reset.css">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,900italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="style.css"/> 
 
@@ -19,30 +18,23 @@
 	</head>
 	<body>
 		<div id = "logo"></div>
-		<div id = "main">
-			<div class = "upper_left">1</div>
-			<div class = "upper_right">1</div>
-			<div class = "lower_left">1</div>
-			<div class = "lower_right">1</div>
+		<div class = "main">
+			<div class = "upper_left"><a id="startButton" href="#">Start</a></div>
+			<div class = "upper_right"><a id="endButton" href="#">End</a></div>
+			<div class = "lower_left"></div>
+			<div class = "lower_right"><p id = "commentButtonText"></p></div>
 		</div>
+
 		<div id = "questionBox">
-			<div>
-				<p>Choose the word or set of words that, when inserted in the sentence, best fits the meaning of the sentence as a whole.<p>
-				<p>Samantha tends to behave -------, rarely considering the consequences of her reckless actions.</p>
-			</div>
+			<div id = "questionDiv"><p></p></div>
 			<form id = "choicesForm">
-					<input type="radio" name="choices" value="seriously"> seriously<br>
-					<input type="radio" name="choices" value="deceitfully"> deceitfully<br>
-					<input type="radio" name="choices" value="cautiously"> cautiously<br>
-					<input type="radio" name="choices" value="deliberately"> deliberately<br>
-					<input type="radio" name="choices" value="impetuously"> impetuously<br>
-					<br><input type="submit" name="submitChoice" value="Submit Answer"><br>
-
+					<input type="radio" name="choices" value="" id="choiceVal0"><span id="choiceText0"></span><br>
+					<input type="radio" name="choices" value="" id="choiceVal1"><span id="choiceText1"></span> <br>
+					<input type="radio" name="choices" value="" id="choiceVal2"><span id="choiceText2"></span> <br>
+					<input type="radio" name="choices" value="" id="choiceVal3"><span id="choiceText3"></span> <br>
+					<input type="radio" name="choices" value="" id="choiceVal4"><span id="choiceText4"></span> <br>
+					<br><input type="submit" id = "submitButton" name="submitChoice" value="Submit Answer"><br>
 			</form>
-			<div>
-			</div>
-
-		</div>
 
 
 
