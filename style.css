@@ -129,6 +129,13 @@ a {
 	margin-top: 7px;
 }
 
+#scoreButtonText {
+	display: none;
+	color: #E8E3E4;
+	margin-top: 7px;
+}
+
+
 #endButton {
 	display: none;
 }

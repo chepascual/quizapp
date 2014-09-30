@@ -54,6 +54,7 @@ var startGame = function() {
 	userCorrectCount = 0;
 	feedback ="";
 	$("#submitEndButton").hide();
+	$("#scoreButtonText").hide();
 	$("#endButton").show();
 	$("#questionBox").show();
 	loadQuestion();
@@ -150,11 +151,15 @@ $("#submitButton").click(function(event) {
 
 			//Display feedback to user
 			$("#questionBox").hide();
+			$("#scoreButtonText").show();
 			$("#feedbackBox").show();
 			$("#nextButton").show();
 			$("#feedbackDiv p").remove();
 			$("#feedbackDiv").append("<p> That's "+feedback+" </p>");
-			
+			//$("#scoreButtonText").text("Hello");
+			$("#scoreButtonText").text("Answered correctly: " + userCorrectCount + "/" + (currentQuestionPosition+1) );
+
+
 			currentQuestionPosition += 1;
 
 			//Check if the end of the questions is reached, if not, load next question
