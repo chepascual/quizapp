@@ -44,24 +44,33 @@ arrayQuestions[3] = new questionObject(
 
 
 var noOfQuestions = arrayQuestions.length;
-var currentQuestionPosition = 0;
-var userCorrectCount = 0;
+var currentQuestionPosition;
+var userCorrectCount;
 var feedback;
 
 var startGame = function() {
 
-	//Move menu squares to the left, create box to the right
-	//Call loadQuestion function
-	$("#endButton").show(2000);
+	currentQuestionPosition = 0;
+	userCorrectCount = 0;
+	feedback ="";
+	$("#submitEndButton").hide();
+	$("#endButton").show();
 	$("#questionBox").show();
 	loadQuestion();
 }
 
-
+var clearQuestion = function() {
+		//Clear old question and choices
+		$("#questionDiv p").remove();
+		$("input[type=radio]").attr("checked", false);
+		feedback="";
+}
 
 var loadQuestion = function() {
 
-			$("#commentButtonText").text(currentQuestionPosition+1 + " of " + noOfQuestions);
+			clearQuestion();
+
+			$("#commentButtonText").text("Question # " + (currentQuestionPosition+1));
 			$("#commentButtonText").show();
 
 			//Load current question position text1
@@ -83,11 +92,18 @@ var loadQuestion = function() {
 
 }
 
-var clearQuestion = function() {
-		//Clear old question and choices
-		$("#questionDiv p").remove();
-		$("input[type=radio]").attr("checked", false);
 
+var endGame = function() {
+	$("#startButton").show();
+	$("#endButton").hide();
+	$("#questionBox").hide();
+	$("#feedbackBox").hide();
+	$(".main").animate(
+		{left: '300px'},
+		500,
+		"swing"
+		);
+	$("#commentButtonText").text("");
 }
 
 $("#startButton").click(function() {
@@ -101,57 +117,76 @@ $("#startButton").click(function() {
 })
 
 $("#endButton").click(function() {
-	$("#commentButtonText").text("Give up already? Oh well");
-	$("#startButton").show();
-	$("#endButton").hide();
-	$("#questionBox").hide();
-	$(".main").animate(
-		{left: '300px'},
-		500,
-		"swing"
-		);
+	endGame();
 })
+
+$("#submitEndButton").click(function() {
+	endGame();
+})
+
 
 $("#submitButton").click(function(event) {
 
 		event.preventDefault();
 		event.stopPropagation();
 
-		var userAnswer = $('input[name="choices"]:checked').val();
-		var realAnswer = arrayQuestions[currentQuestionPosition].answer;
 
-		console.log(userAnswer, realAnswer);
-		
-		if (userAnswer == realAnswer) {
-			userCorrectCount += 1;
-			feedback = "Correct";
-		} else {
-			feedback = "Wrong";
-		}
+		//Check if user selected an answer
+		if ($("input:radio[name='choices']").is(":checked")) {
 
-		$("#commentButtonText").text(feedback);
-		console.log($("#commentButtonText").text());
-		console.log(userCorrectCount);
+			var userAnswer = $('input[name="choices"]:checked').val();
+			var realAnswer = arrayQuestions[currentQuestionPosition].answer;
 
-		//Clear old question and choices
-		clearQuestion();
-		feedback = "";
-		currentQuestionPosition += 1;
+			console.log(userAnswer, realAnswer);
+			
 
-		if (currentQuestionPosition < noOfQuestions) {
-		loadQuestion();
-		}
-		else {
+			//Set feedback variable to determine if answer is correct
+			if (userAnswer == realAnswer) {
+				userCorrectCount += 1;
+				feedback = "correct";
+			} else {
+				feedback = "wrong";
+			}
+
+			//Display feedback to user
 			$("#questionBox").hide();
-			// Write end of quiz actions here
-			$("#commentButtonText").text("");
-			$("#commentButtonText").text("You scored "+ userCorrectCount + "/" + noOfQuestions);
-			console.log($("#commentButtonText").text());
+			$("#feedbackBox").show();
+			$("#nextButton").show();
+			$("#feedbackDiv p").remove();
+			$("#feedbackDiv").append("<p> That's "+feedback+" </p>");
+			
+			currentQuestionPosition += 1;
+
+			//Check if the end of the questions is reached, if not, load next question
+			if (currentQuestionPosition < noOfQuestions) {
+				loadQuestion();
+			}
+
+			//No more questions to load, end the game
+			else {
+				$("#nextButton").hide();
+				$("#feedbackBox").css("height", "300px");
+				$("#submitEndButton").val("You scored " + userCorrectCount + "/" + noOfQuestions);
+				$("#submitEndButton").show();
+				//endGame();
+			}
+
 		}
+
+		//User did not make a selection
+		else {
+			alert("You have to select one of the choices");
+		}
+
+
 
 });
 
-
+$("#nextButton").click(function(event) {
+		$("#feedbackDiv p").remove();
+		$("#feedbackBox").hide();
+		$("#questionBox").show();
+});
 
 
 });

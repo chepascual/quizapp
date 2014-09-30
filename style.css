@@ -81,16 +81,30 @@ html {
 
 #questionBox {
 	position: absolute;
-	border: 3px dotted gray;
+	border: 3px dotted #F5BCA9;
 	height: 500px;
 	width: 400px;
-	//float: right;
 	padding: 10px;
 	display: none;
 	color: gray;
 	top: 225px;
 	right: 50px;
 }
+
+#feedbackBox {
+	position: absolute;
+	border: 3px dotted #F5BCA9;
+	height: 200px;
+	width: 400px;
+	padding: 10px;
+	display: none;
+	color: gray;
+	top: 225px;
+	right: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+
 
 input[type=submit] {
 	padding:5x 15px;
@@ -117,4 +131,26 @@ a {
 
 #endButton {
 	display: none;
+}
+
+#submitButton {
+	outline: none;
+}
+
+#submitEndButton {
+	display: none;
+	outline: none;
+	width: 200px;
+	height: 200px;
+	font-size: 1em;
+	background-color: #F2DCC2;
+}
+
+.submitButtonDiv {
+	text-align: center;
+}
+
+#nextButton {
+	background-color: #D0EEB7;
+	outline: none;
 }
