@@ -94,7 +94,7 @@ var loadQuestion = function() {
 				$("#choiceText" + i).text(arrayQuestions[currentQuestionPosition].choices[i]);
 			}
 
-			$("#commentButtonText").text("Question # " + (currentQuestionPosition+1));
+			$("#commentButtonText").text("Question " + (currentQuestionPosition+1) + " of " + noOfQuestions);
 			$("#commentButtonText").show();
 
 }
