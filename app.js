@@ -35,12 +35,18 @@ arrayQuestions[2] = new questionObject(
 				);
 	
 arrayQuestions[3] = new questionObject(
-				"For how many positive two-digit integers is the ones digit greater than twice the tens digit?",
-				"",
-				["16", "20", "28", "32", "36"],
-				"16"
+				"Choose the word or set of words that, when inserted in the sentence, best fits the meaning of the sentence as a whole. ",
+				"Bromelain, an enzyme found in pineapples, is not ------- in preventing bone and joint diseases, which can make bones susceptible to injury, but it can help injured bones -------.",
+				["corrective . . heal", "effective . . recover", "detrimental . . multiply", "supportive . . degenerate", "vital . . persist"],
+				"effective . . recover"
 				);
 
+arrayQuestions[4] = new questionObject(
+				"Read the following SAT test question and then click on a button to select your answer.",
+				"The sum of the positive odd integers less than 50 is subtracted from the sum of the positive even integers less than or equal to 50. What is the resulting difference?",
+				["0", "25", "50", "100", "200"],
+				"25"
+				);
 
 
 var noOfQuestions = arrayQuestions.length;
@@ -71,9 +77,6 @@ var loadQuestion = function() {
 
 			clearQuestion();
 
-			$("#commentButtonText").text("Question # " + (currentQuestionPosition+1));
-			$("#commentButtonText").show();
-
 			//Load current question position text1
 			$("#questionDiv").append("<p>" + arrayQuestions[currentQuestionPosition].text1 + "</p>");
 
@@ -91,6 +94,9 @@ var loadQuestion = function() {
 				$("#choiceText" + i).text(arrayQuestions[currentQuestionPosition].choices[i]);
 			}
 
+			$("#commentButtonText").text("Question # " + (currentQuestionPosition+1));
+			$("#commentButtonText").show();
+
 }
 
 
@@ -105,6 +111,7 @@ var endGame = function() {
 		"swing"
 		);
 	$("#commentButtonText").text("");
+	$("#scoreButtonText").text("");
 }
 
 $("#startButton").click(function() {
@@ -157,7 +164,7 @@ $("#submitButton").click(function(event) {
 			$("#feedbackDiv p").remove();
 			$("#feedbackDiv").append("<p> That's "+feedback+" </p>");
 			//$("#scoreButtonText").text("Hello");
-			$("#scoreButtonText").text("Answered correctly: " + userCorrectCount + "/" + (currentQuestionPosition+1) );
+			$("#scoreButtonText").text("Answered correctly: " + userCorrectCount + "/" + noOfQuestions );
 
 
 			currentQuestionPosition += 1;
@@ -169,9 +176,10 @@ $("#submitButton").click(function(event) {
 
 			//No more questions to load, end the game
 			else {
+				var scorePct = (userCorrectCount/noOfQuestions)*100;
 				$("#nextButton").hide();
 				$("#feedbackBox").css("height", "300px");
-				$("#submitEndButton").val("You scored " + userCorrectCount + "/" + noOfQuestions);
+				$("#submitEndButton").val("You scored " + scorePct + "%");
 				$("#submitEndButton").show();
 				//endGame();
 			}
